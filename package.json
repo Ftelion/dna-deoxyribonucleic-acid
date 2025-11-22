@@ -1,0 +1,52 @@
+{
+    "name": "dna-explorer",
+    "private": true,
+    "version": "0.0.0",
+    "type": "module",
+    "scripts": {
+        "dev": "vite",
+        "start": "vite",
+        "build": "vite build",
+        "preview": "vite preview",
+        "lint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
+        "lint:fix": "eslint . --ext ts,tsx --fix",
+        "prettier": "prettier --write \"src/**/*.{ts,tsx,css}\" \"*.{json,md}\"",
+        "prettier:check": "prettier --check \"src/**/*.{ts,tsx,css}\" \"*.{json,md}\"",
+        "form": "npm run prettier && npm run lint"
+    },
+    "dependencies": {
+        "@react-three/drei": "^9.88.13",
+        "@react-three/fiber": "^8.15.12",
+        "classnames": "^2.5.1",
+        "eslint-plugin-local-rules": "^3.0.2",
+        "i18next": "^25.6.2",
+        "react": "^18.2.0",
+        "react-dom": "^18.2.0",
+        "react-helmet-async": "^2.0.5",
+        "react-i18next": "^16.3.3",
+        "three": "^0.159.0",
+        "three-stdlib": "^2.36.0",
+        "zustand": "^4.4.7"
+    },
+    "devDependencies": {
+        "@tailwindcss/postcss": "^4.1.17",
+        "@types/node": "^24.10.0",
+        "@types/react": "^18.2.37",
+        "@types/react-dom": "^18.2.15",
+        "@types/three": "^0.181.0",
+        "@typescript-eslint/eslint-plugin": "^8.46.3",
+        "@typescript-eslint/parser": "^8.46.3",
+        "@vitejs/plugin-react": "^4.1.1",
+        "autoprefixer": "^10.4.22",
+        "eslint": "^8.53.0",
+        "eslint-plugin-react": "^7.37.5",
+        "eslint-plugin-react-hooks": "^4.6.0",
+        "eslint-plugin-react-refresh": "^0.4.4",
+        "jsx-ast-utils": "^3.3.5",
+        "postcss": "^8.5.6",
+        "prettier": "^3.6.2",
+        "tailwindcss": "^4.1.17",
+        "typescript": "^5.9.3",
+        "vite": "^4.5.0"
+    }
+}

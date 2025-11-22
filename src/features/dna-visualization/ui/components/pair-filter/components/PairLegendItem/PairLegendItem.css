@@ -1,0 +1,16 @@
+.legend-item {
+    padding: 0.625rem 0.875rem;
+    margin-bottom: 0.5rem;
+    border-radius: 8px;
+    background: var(--item-background);
+    border: 1px solid var(--item-border-color);
+    transition: all 0.2s ease-out;
+    opacity: var(--item-opacity);
+    cursor: var(--item-cursor);
+}
+
+.legend-item:hover {
+    background: var(--item-hover-background);
+    border-color: var(--item-hover-border-color);
+    transform: translateX(2px);
+}

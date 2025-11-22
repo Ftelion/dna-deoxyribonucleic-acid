@@ -1,0 +1,30 @@
+.close-button {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    background: transparent;
+    border: none;
+    font-size: 28px;
+    line-height: 1;
+    cursor: pointer;
+    z-index: 20;
+    color: var(--color-drawer-header-text);
+    transition: all 0.2s ease;
+    width: 32px;
+    height: 32px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 8px;
+    font-family: Arial, sans-serif;
+}
+
+.close-button:hover {
+    background: var(--color-drawer-header-hover);
+    color: var(--color-drawer-header-hover-text);
+    transform: scale(1.1);
+}
+
+.close-button:active {
+    transform: scale(0.95);
+}

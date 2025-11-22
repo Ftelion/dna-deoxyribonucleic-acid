@@ -1,0 +1,8 @@
+/* Цвета текста для pair cards */
+.text-pair-card {
+    color: var(--color-pair-card-text);
+}
+
+.text-pair-card-hover {
+    color: var(--color-pair-card-text-hover);
+}

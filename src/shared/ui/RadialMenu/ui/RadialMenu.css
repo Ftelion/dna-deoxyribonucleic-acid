@@ -1,0 +1,334 @@
+/* ===== RADIAL MENU VARIABLES ===== */
+.radial-menu {
+    --menu-blur: 25px;
+    --menu-border: rgba(255, 255, 255, 0.3);
+    --menu-bg: radial-gradient(circle, rgba(255, 255, 255, 0.15) 0%, rgba(255, 255, 255, 0.05) 70%);
+    --button-size: 48px;
+    --button-border: 2px solid rgba(84, 101, 125, 0.8);
+    --button-bg: linear-gradient(145deg, rgba(255, 255, 255, 0.95), rgba(255, 255, 255, 0.85));
+    --button-hover-bg: linear-gradient(145deg, #54657d, #4a5568);
+    --button-hover-border: #e95454;
+    --icon-color: #54657d;
+}
+
+/* ===== RADIAL MENU ===== */
+.radial-menu {
+    position: fixed;
+    z-index: 1000;
+    pointer-events: auto;
+    border-radius: 50%;
+    background: var(--menu-bg);
+    backdrop-filter: blur(var(--menu-blur));
+    border: 1px solid var(--menu-border);
+    box-shadow:
+        0 8px 32px rgba(0, 0, 0, 0.12),
+        inset 0 1px 0 rgba(255, 255, 255, 0.2);
+    animation:
+        radialMenuFadeIn 0.4s cubic-bezier(0.34, 1.56, 0.64, 1),
+        radialMenuPulse 2s ease-in-out infinite 1s;
+}
+
+.radial-menu.closing {
+    animation: radialMenuFadeOut 0.6s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+}
+
+/* ===== RADIAL BUTTONS ===== */
+.radial-button {
+    position: absolute;
+    width: var(--button-size);
+    height: var(--button-size);
+    border-radius: 50%;
+    background: var(--button-bg);
+    border: var(--button-border);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    box-shadow:
+        0 4px 16px rgba(0, 0, 0, 0.1),
+        0 2px 8px rgba(0, 0, 0, 0.08);
+    transform: scale(0) rotate(-180deg);
+    opacity: 0;
+    animation:
+        radialButtonFlyIn 0.6s cubic-bezier(0.34, 1.56, 0.64, 1) forwards,
+        radialButtonSpin 0.8s ease-out forwards;
+}
+
+/* Animation delays for buttons */
+.radial-button:nth-child(1) {
+    animation-delay: 0.1s;
+}
+.radial-button:nth-child(2) {
+    animation-delay: 0.2s;
+}
+.radial-button:nth-child(3) {
+    animation-delay: 0.3s;
+}
+.radial-button:nth-child(4) {
+    animation-delay: 0.4s;
+}
+
+/* Closing animation */
+.closing .radial-button {
+    animation: radialButtonSpinOut 0.6s ease-in forwards !important;
+}
+
+.closing .radial-button:nth-child(1) {
+    animation-delay: 0s !important;
+}
+.closing .radial-button:nth-child(2) {
+    animation-delay: 0.1s !important;
+}
+.closing .radial-button:nth-child(3) {
+    animation-delay: 0.2s !important;
+}
+.closing .radial-button:nth-child(4) {
+    animation-delay: 0.3s !important;
+}
+
+.radial-button:hover,
+.radial-button.selected {
+    background: var(--button-hover-bg);
+    border-color: var(--button-hover-border);
+    transform: scale(1.2) rotate(0deg);
+    box-shadow:
+        0 12px 32px rgba(233, 84, 84, 0.3),
+        0 6px 16px rgba(0, 0, 0, 0.2),
+        inset 0 2px 4px rgba(255, 255, 255, 0.1);
+}
+
+.radial-button-icon {
+    width: 24px;
+    height: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 18px;
+    margin-bottom: 3px;
+    transition: color 0.3s ease;
+    color: var(--icon-color);
+    position: relative;
+    z-index: 2;
+    font-family: 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', sans-serif;
+}
+
+.radial-button:hover .radial-button-icon,
+.radial-button.selected .radial-button-icon {
+    color: #ffffff;
+}
+
+.radial-button-label {
+    font-size: 10px;
+    font-weight: 700;
+    text-align: center;
+    color: var(--icon-color);
+    line-height: 1.1;
+    white-space: nowrap;
+    opacity: 0;
+    transform: translateY(8px) scale(0.8);
+    transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+.radial-button:hover .radial-button-label,
+.radial-button.selected .radial-button-label {
+    color: #ffffff;
+    opacity: 1;
+    transform: translateY(0) scale(1);
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+/* Анимации */
+@keyframes radialMenuFadeIn {
+    0% {
+        opacity: 0;
+        transform: scale(0.3) rotate(-45deg);
+    }
+    50% {
+        opacity: 0.7;
+        transform: scale(1.1) rotate(10deg);
+    }
+    100% {
+        opacity: 1;
+        transform: scale(1) rotate(0deg);
+    }
+}
+
+@keyframes radialMenuFadeOut {
+    0% {
+        opacity: 1;
+        transform: scale(1) rotate(0deg);
+    }
+    100% {
+        opacity: 0;
+        transform: scale(0.3) rotate(45deg);
+    }
+}
+
+@keyframes radialMenuPulse {
+    0%,
+    100% {
+        box-shadow:
+            0 8px 32px rgba(0, 0, 0, 0.12),
+            inset 0 1px 0 rgba(255, 255, 255, 0.2);
+    }
+    50% {
+        box-shadow:
+            0 12px 40px rgba(0, 0, 0, 0.15),
+            inset 0 1px 0 rgba(255, 255, 255, 0.3);
+    }
+}
+
+@keyframes radialButtonFlyIn {
+    0% {
+        opacity: 0;
+        transform: scale(0) rotate(-180deg) translateY(20px);
+    }
+    60% {
+        opacity: 0.8;
+        transform: scale(1.2) rotate(20deg) translateY(-5px);
+    }
+    100% {
+        opacity: 1;
+        transform: scale(1) rotate(0deg) translateY(0);
+    }
+}
+
+@keyframes radialButtonSpin {
+    0% {
+        transform: scale(0) rotate(-180deg) translateY(20px);
+    }
+    30% {
+        transform: scale(0.3) rotate(-120deg) translateY(15px);
+    }
+    60% {
+        transform: scale(0.8) rotate(-60deg) translateY(5px);
+    }
+    100% {
+        transform: scale(1) rotate(0deg) translateY(0);
+    }
+}
+
+@keyframes radialButtonSpinOut {
+    0% {
+        opacity: 1;
+        transform: scale(1) rotate(0deg) translateY(0);
+    }
+    40% {
+        opacity: 0.8;
+        transform: scale(0.8) rotate(60deg) translateY(-5px);
+    }
+    70% {
+        opacity: 0.3;
+        transform: scale(0.3) rotate(120deg) translateY(15px);
+    }
+    100% {
+        opacity: 0;
+        transform: scale(0) rotate(180deg) translateY(20px);
+    }
+}
+
+@keyframes buttonBounce {
+    0% {
+        transform: scale(1.2) rotate(0deg) translateY(0);
+    }
+    25% {
+        transform: scale(1.25) rotate(2deg) translateY(-2px);
+    }
+    50% {
+        transform: scale(1.3) rotate(-2deg) translateY(-4px);
+    }
+    75% {
+        transform: scale(1.25) rotate(1deg) translateY(-2px);
+    }
+    100% {
+        transform: scale(1.2) rotate(0deg) translateY(0);
+    }
+}
+
+/* Ripple эффект при клике */
+.radial-button:active {
+    transform: scale(0.95);
+    transition: transform 0.1s ease;
+}
+
+.radial-button::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    border-radius: 50%;
+    background: rgba(233, 84, 84, 0.3);
+    transform: translate(-50%, -50%);
+    transition:
+        width 0.6s ease,
+        height 0.6s ease;
+    pointer-events: none;
+}
+
+.radial-button:active::before {
+    width: 60px;
+    height: 60px;
+}
+
+/* Dark mode support */
+@media (prefers-color-scheme: dark) {
+    .radial-menu {
+        background: radial-gradient(circle, rgba(31, 41, 55, 0.2) 0%, rgba(31, 41, 55, 0.1) 70%);
+        border-color: rgba(255, 255, 255, 0.15);
+        box-shadow:
+            0 8px 32px rgba(0, 0, 0, 0.3),
+            inset 0 1px 0 rgba(255, 255, 255, 0.1);
+    }
+
+    .radial-button {
+        background: linear-gradient(145deg, rgba(31, 41, 55, 0.95), rgba(31, 41, 55, 0.85));
+        border-color: rgba(156, 163, 175, 0.8);
+        box-shadow:
+            0 4px 16px rgba(0, 0, 0, 0.3),
+            0 2px 8px rgba(0, 0, 0, 0.2);
+    }
+
+    .radial-button-label {
+        color: #9ca3af;
+        text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+    }
+
+    .radial-button:hover,
+    .radial-button.selected {
+        background: linear-gradient(145deg, #4a5568, #374151);
+        border-color: #e95454;
+        box-shadow:
+            0 12px 32px rgba(233, 84, 84, 0.4),
+            0 6px 16px rgba(0, 0, 0, 0.4),
+            inset 0 2px 4px rgba(255, 255, 255, 0.1);
+    }
+
+    .radial-button:hover .radial-button-label,
+    .radial-button.selected .radial-button-label {
+        color: #ffffff;
+        text-shadow: 0 2px 4px rgba(0, 0, 0, 0.4);
+    }
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+    .radial-button {
+        width: 44px;
+        height: 44px;
+    }
+
+    .radial-button-icon {
+        width: 22px;
+        height: 22px;
+        font-size: 16px;
+    }
+
+    .radial-button-label {
+        font-size: 9px;
+    }
+}

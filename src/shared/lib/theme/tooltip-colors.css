@@ -1,0 +1,21 @@
+/* CSS Variables для цветов Tooltip */
+:root {
+    /* Базовые цвета Tooltip */
+    --tooltip-selected: #ffd700;
+    --tooltip-selected-glow: rgba(255, 215, 0, 0.35);
+    --tooltip-hover: #00ffff;
+    --tooltip-hover-glow: rgba(0, 255, 255, 0.3);
+
+    /* Фоны Tooltip */
+    --tooltip-default-bg: rgba(255, 255, 255, 0.8);
+    --tooltip-selected-bg: linear-gradient(145deg, rgba(255, 215, 0, 0.12), rgba(255, 215, 0, 0.06));
+    --tooltip-hover-bg: rgba(255, 255, 255, 0.92);
+
+    /* Цвета тени */
+    --tooltip-shadow-dark: rgba(0, 0, 0, 0.18);
+    --tooltip-shadow-light: rgba(0, 0, 0, 0.1);
+    --tooltip-shadow-indicator: rgba(0, 0, 0, 0.3);
+
+    /* Эффекты */
+    --tooltip-white-alpha: rgba(255, 255, 255, 0.25);
+}

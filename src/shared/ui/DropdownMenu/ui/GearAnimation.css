@@ -1,0 +1,183 @@
+.gear-spin {
+    transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* Стили для иконки внутри gear-spin */
+.gear-spin:hover svg path,
+.gear-spin:hover svg circle,
+.gear-spin.active svg path,
+.gear-spin.active svg circle {
+    stroke: var(--color-dropdown-hover-text) !important;
+}
+
+/* Варианты анимации шестеренки */
+.gear-variant-1:hover,
+.gear-variant-1.active {
+    animation: gear-rotate-variant-1 4s cubic-bezier(0.25, 0.46, 0.45, 0.94) infinite;
+}
+
+.gear-variant-2:hover,
+.gear-variant-2.active {
+    animation: gear-rotate-variant-2 3.8s cubic-bezier(0.25, 0.46, 0.45, 0.94) infinite;
+}
+
+.gear-variant-3:hover,
+.gear-variant-3.active {
+    animation: gear-rotate-variant-3 4.2s cubic-bezier(0.25, 0.46, 0.45, 0.94) infinite;
+}
+
+/* Вариант 1: резкие дергания с паузой */
+@keyframes gear-rotate-variant-1 {
+    0% {
+        transform: rotate(0deg) translateX(0px) translateY(0px);
+    }
+    3% {
+        transform: rotate(3deg) translateX(2px) translateY(-1px);
+    }
+    6% {
+        transform: rotate(-2deg) translateX(-1px) translateY(1px);
+    }
+    9% {
+        transform: rotate(1deg) translateX(1px) translateY(0px);
+    }
+    12% {
+        transform: rotate(-1deg) translateX(-1px) translateY(-0.5px);
+    }
+    15% {
+        transform: rotate(0.5deg) translateX(0px) translateY(0px);
+    }
+    20% {
+        transform: rotate(0deg) translateX(0px) translateY(0px);
+    }
+    25% {
+        transform: rotate(8deg) translateX(0px) translateY(0px);
+    }
+    30% {
+        transform: rotate(25deg) translateX(0px) translateY(0px);
+    }
+    40% {
+        transform: rotate(95deg);
+    }
+    55% {
+        transform: rotate(175deg);
+    }
+    70% {
+        transform: rotate(245deg);
+    }
+    85% {
+        transform: rotate(315deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+/* Вариант 2: хаотичные микро-дергания */
+@keyframes gear-rotate-variant-2 {
+    0% {
+        transform: rotate(0deg) translateX(0px) translateY(0px);
+    }
+    2% {
+        transform: rotate(0.5deg) translateX(0.3px) translateY(0.2px);
+    }
+    4% {
+        transform: rotate(-0.3deg) translateX(-0.2px) translateY(-0.1px);
+    }
+    6% {
+        transform: rotate(0.8deg) translateX(0.4px) translateY(0px);
+    }
+    8% {
+        transform: rotate(-0.6deg) translateX(-0.3px) translateY(0.3px);
+    }
+    10% {
+        transform: rotate(0.4deg) translateX(0.1px) translateY(-0.2px);
+    }
+    12% {
+        transform: rotate(-0.2deg) translateX(-0.1px) translateY(0.1px);
+    }
+    14% {
+        transform: rotate(0.1deg) translateX(0px) translateY(0px);
+    }
+    18% {
+        transform: rotate(0deg) translateX(0px) translateY(0px);
+    }
+    22% {
+        transform: rotate(12deg) translateX(0px) translateY(0px);
+    }
+    28% {
+        transform: rotate(45deg) translateX(0px) translateY(0px);
+    }
+    35% {
+        transform: rotate(120deg);
+    }
+    50% {
+        transform: rotate(180deg);
+    }
+    65% {
+        transform: rotate(240deg);
+    }
+    80% {
+        transform: rotate(300deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+/* Вариант 3: длинная тряска с нерегулярными паузами */
+@keyframes gear-rotate-variant-3 {
+    0% {
+        transform: rotate(0deg) translateX(0px) translateY(0px);
+    }
+    2% {
+        transform: rotate(1deg) translateX(1px) translateY(0.5px);
+    }
+    4% {
+        transform: rotate(-1.5deg) translateX(-1.5px) translateY(-0.5px);
+    }
+    6% {
+        transform: rotate(2deg) translateX(1.2px) translateY(1px);
+    }
+    8% {
+        transform: rotate(-0.8deg) translateX(-0.8px) translateY(-0.3px);
+    }
+    10% {
+        transform: rotate(1.2deg) translateX(0.5px) translateY(0.8px);
+    }
+    12% {
+        transform: rotate(-0.5deg) translateX(-0.3px) translateY(-0.2px);
+    }
+    14% {
+        transform: rotate(0.3deg) translateX(0.2px) translateY(0px);
+    }
+    16% {
+        transform: rotate(-0.1deg) translateX(0px) translateY(0.1px);
+    }
+    18% {
+        transform: rotate(0deg) translateX(0px) translateY(0px);
+    }
+    24% {
+        transform: rotate(0deg) translateX(0px) translateY(0px);
+    }
+    28% {
+        transform: rotate(6deg) translateX(0px) translateY(0px);
+    }
+    32% {
+        transform: rotate(18deg) translateX(0px) translateY(0px);
+    }
+    38% {
+        transform: rotate(85deg);
+    }
+    52% {
+        transform: rotate(165deg);
+    }
+    66% {
+        transform: rotate(235deg);
+    }
+    82% {
+        transform: rotate(305deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}

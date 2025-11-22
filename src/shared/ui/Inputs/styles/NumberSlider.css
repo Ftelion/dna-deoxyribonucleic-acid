@@ -1,0 +1,98 @@
+.slider-input {
+    width: 5rem;
+    padding: 0.375rem 0.75rem;
+    font-size: 0.875rem;
+    border: 1px solid var(--color-number-slider-border);
+    border-radius: 0.5rem;
+    background: var(--color-number-slider-background);
+    color: var(--color-number-slider-text);
+    box-shadow: 0 1px 2px var(--color-number-slider-shadow);
+    transition: all 0.2s ease-in-out;
+}
+
+.slider-input:focus {
+    outline: none;
+    border-color: var(--color-number-slider-focus-border);
+    box-shadow: 0 0 0 3px var(--color-number-slider-focus-shadow);
+}
+
+.slider-input::placeholder {
+    color: var(--color-number-slider-placeholder);
+}
+
+/* Стили для range slider */
+.slider-range {
+    width: 100%;
+    height: 6px;
+    border-radius: 9999px;
+    appearance: none;
+    cursor: pointer;
+    transition: background 0.15s ease-out;
+    background: linear-gradient(
+        to right,
+        var(--color-range-slider-track-start) 0%,
+        var(--color-range-slider-track-start) var(--fill-percentage),
+        var(--color-range-slider-track-end) var(--fill-percentage),
+        var(--color-range-slider-track-end) 100%
+    );
+}
+
+.slider-range:focus {
+    outline: none;
+}
+
+/* Webkit (Chrome, Safari, Edge) */
+.slider-range::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 18px;
+    height: 18px;
+    border-radius: 50%;
+    background: var(--color-range-slider-thumb-bg);
+    cursor: pointer;
+    border: 2px solid var(--color-range-slider-thumb-border);
+    box-shadow:
+        0 2px 6px var(--color-range-slider-thumb-shadow),
+        0 0 0 1px var(--color-range-slider-thumb-shadow-inner);
+    transition: all 0.2s ease-out;
+}
+
+/* Firefox */
+.slider-range::-moz-range-thumb {
+    width: 18px;
+    height: 18px;
+    border-radius: 50%;
+    background: var(--color-range-slider-thumb-bg);
+    cursor: pointer;
+    border: 2px solid var(--color-range-slider-thumb-border);
+    box-shadow:
+        0 2px 6px var(--color-range-slider-thumb-shadow),
+        0 0 0 1px var(--color-range-slider-thumb-shadow-inner);
+    transition: all 0.2s ease-out;
+}
+
+/* Hover состояние для всех браузеров */
+.slider-range::-webkit-slider-thumb:hover,
+.slider-range::-moz-range-thumb:hover {
+    transform: scale(1.15);
+    box-shadow:
+        0 3px 8px var(--color-range-slider-thumb-shadow),
+        0 0 0 2px var(--color-range-slider-thumb-shadow-inner);
+}
+
+/* Active состояние для всех браузеров */
+.slider-range::-webkit-slider-thumb:active,
+.slider-range::-moz-range-thumb:active {
+    transform: scale(1.05);
+    box-shadow:
+        0 2px 4px var(--color-range-slider-thumb-shadow),
+        0 0 0 3px var(--color-range-slider-thumb-shadow-inner);
+}
+
+/* Focus состояние для всех браузеров */
+.slider-range:focus::-webkit-slider-thumb,
+.slider-range:focus::-moz-range-thumb {
+    box-shadow:
+        0 2px 6px var(--color-range-slider-thumb-shadow),
+        0 0 0 3px var(--color-range-slider-thumb-shadow-inner);
+}

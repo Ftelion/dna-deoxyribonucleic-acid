@@ -1,0 +1,41 @@
+.switch-button {
+    position: relative;
+    display: inline-flex;
+    height: 1.5rem;
+    width: 2.75rem;
+    align-items: center;
+    border-radius: 0.75rem;
+    outline: none;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    cursor: pointer;
+}
+
+.switch-button--checked {
+    background-color: #3b82f6;
+    box-shadow:
+        0 2px 8px rgba(59, 130, 246, 0.4),
+        inset 0 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+.switch-button--unchecked {
+    background-color: #e5e7eb;
+    box-shadow:
+        0 1px 3px rgba(0, 0, 0, 0.1),
+        inset 0 1px 2px rgba(0, 0, 0, 0.05);
+}
+
+.switch-button:focus-visible {
+    box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.2);
+}
+
+.switch-button--checked:focus-visible {
+    box-shadow:
+        0 0 0 3px rgba(59, 130, 246, 0.2),
+        0 2px 8px rgba(59, 130, 246, 0.4);
+}
+
+.switch-button--unchecked:focus-visible {
+    box-shadow:
+        0 0 0 3px rgba(59, 130, 246, 0.2),
+        0 1px 3px rgba(0, 0, 0, 0.1);
+}

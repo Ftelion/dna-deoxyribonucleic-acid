@@ -1,0 +1,16 @@
+.dna-controls-panel {
+    background: linear-gradient(
+        to bottom,
+        var(--color-drawer-background-primary) 0%,
+        var(--color-drawer-background-secondary) 100%
+    );
+    border-radius: 0.75rem;
+    border: 1px solid var(--color-drawer-border);
+    padding: 1.25rem;
+    box-shadow: 0 2px 4px var(--color-drawer-shadow-secondary);
+    width: 100%;
+}
+
+.dna-controls-divider {
+    border-color: var(--color-drawer-border);
+}

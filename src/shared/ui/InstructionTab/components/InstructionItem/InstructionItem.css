@@ -1,0 +1,38 @@
+@import './InstructionIconsAnimation.css';
+
+.instruction-item {
+    padding: 0.625rem 0.875rem;
+    margin-bottom: 0.5rem;
+    border-radius: 8px;
+    background: linear-gradient(
+        135deg,
+        var(--color-instruction-background) 0%,
+        var(--color-instruction-background-secondary) 100%
+    );
+    border: 1px solid var(--color-instruction-border);
+    transition: all 0.2s ease-out;
+}
+
+.instruction-item:hover {
+    background: linear-gradient(
+        135deg,
+        var(--color-instruction-hover-background) 0%,
+        var(--color-instruction-hover-background) 100%
+    );
+    border-color: var(--color-instruction-hover-border);
+    transform: translateX(2px);
+    cursor: default;
+}
+
+/* Цвета текста для instruction items */
+.instruction-item p {
+    color: var(--color-instruction-text);
+}
+
+.instruction-item:hover p {
+    color: var(--color-instruction-text-hover);
+}
+
+.instruction-item:hover p span:first-child svg {
+    color: var(--color-instruction-text-hover);
+}

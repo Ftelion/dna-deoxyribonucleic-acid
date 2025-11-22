@@ -1,0 +1,24 @@
+.content {
+    overflow: hidden;
+    transition:
+        max-height 0.35s cubic-bezier(0.4, 0, 0.2, 1),
+        opacity 0.25s ease-out;
+}
+
+/* внутренний контейнер */
+.content-inner {
+    padding: 1.25rem 1.25rem 1.5rem;
+    border-top: 1px solid transparent;
+    transition:
+        border-color 0.25s ease-out,
+        opacity 0.5s ease-out,
+        transform 0.25s ease-out;
+    opacity: 0;
+    transform: translateY(-2px);
+}
+
+.open {
+    border-top-color: var(--color-drawer-border);
+    opacity: 1;
+    transform: translateY(0px);
+}

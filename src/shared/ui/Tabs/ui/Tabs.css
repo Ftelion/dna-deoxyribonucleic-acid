@@ -1,0 +1,74 @@
+/* Анимации контента табов */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(8px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.tab-content {
+    animation: fadeInUp 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Кастомные scrollbar стили */
+.tabs-header::-webkit-scrollbar {
+    display: none; /* Chrome/Safari/Opera */
+}
+
+.tabs-header {
+    scrollbar-width: none; /* Firefox */
+    -ms-overflow-style: none; /* IE/Edge */
+    scroll-behavior: smooth;
+    -webkit-overflow-scrolling: touch; /* Плавная прокрутка на iOS */
+}
+
+/* Градиенты для индикации прокрутки */
+.modern-tabs::before,
+.modern-tabs::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    width: 40px;
+    height: 60px;
+    pointer-events: none;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    z-index: 10;
+}
+
+.modern-tabs::before {
+    left: 0;
+    background: linear-gradient(to right, rgba(255, 255, 255, 0.9), transparent);
+}
+
+.modern-tabs::after {
+    right: 0;
+    background: linear-gradient(to left, rgba(255, 255, 255, 0.9), transparent);
+}
+
+/* Темная тема для градиентов */
+.modern-tabs.dark::before {
+    background: linear-gradient(to right, rgba(30, 41, 59, 0.9), transparent);
+}
+
+.modern-tabs.dark::after {
+    background: linear-gradient(to left, rgba(30, 41, 59, 0.9), transparent);
+}
+
+/* Показываем градиенты при прокрутке на мобильных */
+@media (max-width: 768px) {
+    .modern-tabs::before,
+    .modern-tabs::after {
+        opacity: 1;
+    }
+}
+
+/* Минимальный стиль для табов */
+.modern-tabs.minimal .tab-indicator {
+    height: 2px;
+    border-radius: 1px;
+}

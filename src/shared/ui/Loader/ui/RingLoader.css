@@ -1,0 +1,76 @@
+/* Контейнер лоадера */
+.ring-loader-wrapper {
+    position: relative;
+    display: inline-block;
+}
+
+/* Размеры контейнера */
+.ring-loader-wrapper--default-size {
+    width: 60px;
+    height: 60px;
+}
+
+.ring-loader-wrapper--custom-size {
+    width: var(--ring-loader-size);
+    height: var(--ring-loader-size);
+}
+
+/* Базовые стили для колец */
+.ring-loader-ring {
+    position: absolute;
+    top: 0;
+    left: 0;
+    border-radius: 50%;
+    opacity: 0.4;
+    perspective: 800px;
+}
+
+/* Размеры колец */
+.ring-loader-ring--default-size {
+    width: 60px;
+    height: 60px;
+    border: 6px solid #3b82f6; /* толщина = размер / 10 */
+}
+
+.ring-loader-ring--custom-size {
+    width: var(--ring-loader-size);
+    height: var(--ring-loader-size);
+    border-width: calc(var(--ring-loader-size) / 10);
+}
+
+/* Цвета колец */
+.ring-loader-ring--default-color {
+    border-color: #3b82f6;
+}
+
+.ring-loader-ring--custom-color {
+    border-color: var(--ring-loader-color);
+}
+
+/* Правое кольцо - вращение по часовой стрелке */
+.ring-loader-ring--right {
+    animation: ring-loader-rotate-right 2s infinite linear;
+}
+
+/* Левое кольцо - вращение против часовой стрелки */
+.ring-loader-ring--left {
+    animation: ring-loader-rotate-left 2s infinite linear;
+}
+
+@keyframes ring-loader-rotate-right {
+    0% {
+        transform: rotateX(0deg) rotateY(0deg) rotateZ(0deg);
+    }
+    100% {
+        transform: rotateX(180deg) rotateY(360deg) rotateZ(360deg);
+    }
+}
+
+@keyframes ring-loader-rotate-left {
+    0% {
+        transform: rotateX(0deg) rotateY(0deg) rotateZ(0deg);
+    }
+    100% {
+        transform: rotateX(360deg) rotateY(180deg) rotateZ(360deg);
+    }
+}

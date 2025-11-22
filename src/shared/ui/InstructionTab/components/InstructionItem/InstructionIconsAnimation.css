@@ -1,0 +1,113 @@
+/* ЛКМ */
+.left-mouse-icon {
+    transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.instruction-item:hover .left-mouse-icon {
+    animation: left-click-press 0.6s ease-in-out;
+}
+
+@keyframes left-click-press {
+    0% {
+        transform: rotate(0deg) scale(1);
+    }
+    25% {
+        transform: rotate(-5deg) scale(1.08);
+    }
+    50% {
+        transform: rotate(3deg) scale(0.92);
+    }
+    75% {
+        transform: rotate(-2deg) scale(1.02);
+    }
+    100% {
+        transform: rotate(0deg) scale(1);
+    }
+}
+
+/* ПКМ */
+.right-mouse-icon {
+    transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.instruction-item:hover .right-mouse-icon {
+    animation: right-click-rotate 0.8s ease-in-out;
+}
+
+@keyframes right-click-rotate {
+    0% {
+        transform: rotate(0deg) scale(1);
+    }
+    25% {
+        transform: rotate(5deg) scale(1.08);
+    }
+    50% {
+        transform: rotate(-3deg) scale(0.92);
+    }
+    75% {
+        transform: rotate(2deg) scale(1.02);
+    }
+    100% {
+        transform: rotate(0deg) scale(1);
+    }
+}
+
+/* Колесико */
+.mouse-wheel-icon {
+    transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.instruction-item:hover .mouse-wheel-icon {
+    animation: wheel-spin 1s ease-in-out;
+    transform-origin: center;
+}
+
+@keyframes wheel-spin {
+    0% {
+        transform: translateY(0);
+    }
+    25% {
+        transform: translateY(-2px);
+    }
+    50% {
+        transform: translateY(0);
+    }
+    75% {
+        transform: translateY(2px);
+    }
+    100% {
+        transform: translateY(0);
+    }
+}
+
+/* Клик */
+.click-icon {
+    transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.instruction-item:hover .click-icon {
+    animation: click-pulse 0.7s ease-in-out;
+}
+
+@keyframes click-pulse {
+    0% {
+        transform: scale(1) rotate(0deg);
+        opacity: 1;
+    }
+    25% {
+        transform: scale(1.2) rotate(2deg);
+        opacity: 0.9;
+    }
+    50% {
+        transform: scale(0.9) rotate(-1deg);
+        opacity: 1;
+    }
+    75% {
+        transform: scale(1.1) rotate(1deg);
+        opacity: 0.95;
+    }
+    100% {
+        transform: scale(1) rotate(0deg);
+        opacity: 1;
+    }
+}

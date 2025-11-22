@@ -1,0 +1,158 @@
+/* CSS Variables для кастомизации */
+.back-to-default-values-button {
+    --btn-color: #979695;
+    --btn-hover-color: #dd6395;
+    --btn-danger-color: #ef4444;
+    --btn-danger-hover: #dc2626;
+    --btn-disabled-color: #d1d5db;
+    --btn-disabled-bg: #f3f4f6;
+    --border-radius: 4px;
+    --transition-timing: cubic-bezier(0.4, 0, 0.2, 1);
+
+    position: relative;
+    border-color: var(--btn-color);
+    color: var(--btn-color);
+    border: 1px solid var(--btn-color);
+    background: transparent;
+    min-height: 3em;
+    padding: 0 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    transition: all 0.3s var(--transition-timing);
+    transform: scale(1);
+    cursor: pointer;
+    font-family: inherit;
+    font-size: 14px;
+    font-weight: 500;
+    border-radius: var(--border-radius);
+}
+
+/* Размеры */
+.reset-btn-sm {
+    min-height: 2.5em;
+    padding: 0 1.5rem;
+    font-size: 13px;
+}
+
+.reset-btn-md {
+    min-height: 3em;
+    padding: 0 1.5rem;
+    font-size: 14px;
+}
+
+.reset-btn-lg {
+    min-height: 3.5em;
+    padding: 0 2.5rem;
+    font-size: 16px;
+}
+
+/* Варианты */
+.reset-btn-default {
+    --btn-color: #979695;
+    --btn-hover-color: #dd6395;
+}
+
+.reset-btn-danger {
+    --btn-color: #ef4444;
+    --btn-hover-color: #dc2626;
+}
+
+/* Hover эффект */
+.back-to-default-values-button:hover:not(.disabled) {
+    border-color: var(--btn-hover-color);
+    color: var(--btn-hover-color);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Active состояние */
+.back-to-default-values-button:active:not(.disabled) {
+    transform: scale(0.95);
+    transition: transform 0.1s ease-out;
+}
+
+/* Анимированные границы - сохранено из оригинала, но улучшено */
+.back-to-default-values-button::before,
+.back-to-default-values-button::after {
+    position: absolute;
+    top: 0;
+    left: 0;
+    border-color: var(--btn-hover-color);
+    border-style: solid;
+    transition: all 0.4s var(--transition-timing);
+    content: '';
+    z-index: 0;
+    pointer-events: none;
+    border-radius: var(--border-radius);
+}
+
+.back-to-default-values-button::before {
+    width: 0;
+    height: 100%;
+    border-width: 1px 0 1px 0;
+}
+
+.back-to-default-values-button::after {
+    width: 100%;
+    height: 0;
+    border-width: 0 1px 0 1px;
+}
+
+.back-to-default-values-button:hover:not(.disabled)::before {
+    width: 100%;
+    border-width: 1px 0 1px 0;
+}
+
+.back-to-default-values-button:hover:not(.disabled)::after {
+    height: 100%;
+    border-width: 0 1px 0 1px;
+}
+
+/* Контент кнопки */
+.reset-btn-content {
+    position: relative;
+    z-index: 1;
+    transition: opacity 0.3s ease;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.reset-btn-content.with-spinner {
+    opacity: 0.7;
+}
+
+/* Disabled состояние */
+.back-to-default-values-button.disabled {
+    cursor: not-allowed;
+    opacity: 0.6;
+    border-color: var(--btn-disabled-color);
+    color: var(--btn-disabled-color);
+    background-color: var(--btn-disabled-bg);
+}
+
+.back-to-default-values-button.disabled:hover {
+    transform: scale(1);
+    box-shadow: none;
+}
+
+.back-to-default-values-button.disabled::before,
+.back-to-default-values-button.disabled::after {
+    border-color: var(--btn-disabled-color);
+}
+
+/* Focus состояние для доступности */
+.back-to-default-values-button:focus-visible {
+    outline: 2px solid var(--btn-hover-color);
+    outline-offset: 2px;
+}
+
+/* Dark mode поддержка */
+@media (prefers-color-scheme: dark) {
+    .back-to-default-values-button {
+        --btn-disabled-bg: #374151;
+    }
+}

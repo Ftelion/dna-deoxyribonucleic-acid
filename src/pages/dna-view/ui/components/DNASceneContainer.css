@@ -1,0 +1,9 @@
+.dna-scene-animated {
+    transition: margin 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+    will-change: margin;
+}
+
+.dna-scene-resizing {
+    transition: none;
+    will-change: auto;
+}

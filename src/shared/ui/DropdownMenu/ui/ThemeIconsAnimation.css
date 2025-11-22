@@ -1,0 +1,193 @@
+:root {
+    --theme-transition: all 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    --theme-transition-fast: all 0.3s ease;
+}
+
+/* Солнце */
+.sun-icon {
+    transition: var(--theme-transition-fast);
+}
+
+.nested-popover-item:hover .sun-icon {
+    animation: sun-center-pulse 2s ease-in-out infinite;
+}
+
+/* Центральный круг солнца */
+.sun-center {
+    opacity: 1;
+    transition: var(--theme-transition-fast);
+}
+
+/* Лучи солнца */
+.sun-ray {
+    opacity: 1;
+    transform: scale(1) rotate(0deg);
+    transform-origin: center;
+    transition: var(--theme-transition);
+}
+
+/* Состояния лучей солнца */
+.nested-popover-item.active .sun-ray {
+    animation: none;
+    opacity: 1;
+    transform: scale(1) rotate(0deg);
+}
+
+.nested-popover-item:hover .sun-ray {
+    animation: sun-rays-cycle 3s ease-in-out 1 !important;
+    animation-fill-mode: forwards;
+}
+
+.nested-popover-item:not(:hover) .sun-ray {
+    animation: sun-rays-return 1.2s ease-in-out 1;
+    animation-fill-mode: forwards;
+}
+
+/* Анимации солнца */
+@keyframes sun-center-pulse {
+    0%,
+    100% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.1);
+    }
+}
+
+@keyframes sun-rays-cycle {
+    /* Фаза исчезновения лучей */
+    0% {
+        opacity: 1;
+        transform: scale(1) rotate(0deg);
+    }
+    10% {
+        opacity: 0.9;
+        transform: scale(0.95) rotate(45deg);
+    }
+    20% {
+        opacity: 0.7;
+        transform: scale(0.9) rotate(90deg);
+    }
+    30% {
+        opacity: 0.3;
+        transform: scale(0.8) rotate(135deg);
+    }
+    40%,
+    50% {
+        opacity: 0;
+        transform: scale(0.7) rotate(180deg);
+    }
+
+    /* Фаза появления лучей */
+    60% {
+        opacity: 0.3;
+        transform: scale(0.8) rotate(225deg);
+    }
+    70% {
+        opacity: 0.7;
+        transform: scale(0.9) rotate(270deg);
+    }
+    80% {
+        opacity: 0.9;
+        transform: scale(0.95) rotate(315deg);
+    }
+    90%,
+    100% {
+        opacity: 1;
+        transform: scale(1) rotate(360deg);
+    }
+}
+
+@keyframes sun-rays-return {
+    0% {
+        opacity: 1;
+        transform: scale(1) rotate(360deg);
+    }
+    100% {
+        opacity: 1;
+        transform: scale(1) rotate(0deg);
+    }
+}
+
+/* Луна */
+.moon-main,
+.moon-star {
+    opacity: 1;
+    transform: scale(1);
+    transform-origin: center;
+    transition: var(--theme-transition);
+}
+
+/* Состояния луны и звезд */
+.nested-popover-item.active .moon-main,
+.nested-popover-item.active .moon-star {
+    animation: none;
+    opacity: 1;
+    transform: scale(1);
+}
+
+.nested-popover-item:hover .moon-main {
+    animation: moon-sway 2.5s ease-in-out 1 !important;
+    animation-fill-mode: forwards;
+}
+
+.nested-popover-item:not(:hover) .moon-main {
+    animation: moon-sway-return 1.5s ease-in-out 1;
+    animation-fill-mode: forwards;
+}
+
+.nested-popover-item:not(:hover) .moon-star:nth-child(1),
+.nested-popover-item:not(:hover) .moon-star:nth-child(2) {
+    animation: star-return 1.2s ease-in-out 1;
+    animation-fill-mode: forwards;
+}
+
+/* Анимации луны */
+@keyframes moon-sway {
+    0%,
+    100% {
+        transform: rotate(0deg) scale(1);
+    }
+    15% {
+        transform: rotate(8deg) scale(1.05);
+    }
+    30% {
+        transform: rotate(-6deg) scale(0.98);
+    }
+    45% {
+        transform: rotate(4deg) scale(1.02);
+    }
+    60% {
+        transform: rotate(-3deg) scale(0.99);
+    }
+    75% {
+        transform: rotate(2deg) scale(1.01);
+    }
+    90% {
+        transform: rotate(-1deg) scale(1.005);
+    }
+}
+
+@keyframes moon-sway-return {
+    0%,
+    100% {
+        transform: rotate(0deg) scale(1);
+    }
+    25% {
+        transform: rotate(-1deg) scale(0.99);
+    }
+    50% {
+        transform: rotate(0.5deg) scale(1.005);
+    }
+    75% {
+        transform: rotate(-0.2deg) scale(0.998);
+    }
+}
+
+@keyframes star-return {
+    0%,
+    100% {
+        opacity: 1;
+        transform: scale(1) rotate(0deg);
+    }
+}
