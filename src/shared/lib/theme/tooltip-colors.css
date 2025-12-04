@@ -8,7 +8,7 @@
 
     /* Фоны Tooltip */
     --tooltip-default-bg: rgba(255, 255, 255, 0.8);
-    --tooltip-selected-bg: linear-gradient(145deg, rgba(255, 215, 0, 0.12), rgba(255, 215, 0, 0.06));
+    --tooltip-selected-bg: white;
     --tooltip-hover-bg: rgba(255, 255, 255, 0.92);
 
     /* Цвета тени */
@@ -18,4 +18,25 @@
 
     /* Эффекты */
     --tooltip-white-alpha: rgba(255, 255, 255, 0.25);
+}
+
+/* Темная тема */
+[data-theme='dark'] {
+    /* Фоны Tooltip */
+    --tooltip-default-bg: rgba(30, 41, 59, 0.85);
+    --tooltip-selected-bg: linear-gradient(145deg, rgba(230, 35, 24, 0.612), rgba(255, 217, 0, 0.377));
+    --tooltip-hover-bg: linear-gradient(145deg, rgba(59, 130, 246, 0.22), rgba(59, 130, 246, 0.14));
+
+    /* Цвета границ и свечения для лучшей видимости */
+    --tooltip-hover: #60a5fa;
+    --tooltip-hover-glow: rgba(96, 165, 250, 0.35);
+    --tooltip-selected-glow: rgba(255, 215, 0, 0.45);
+
+    /* Цвета тени для темной темы */
+    --tooltip-shadow-dark: rgba(0, 0, 0, 0.4);
+    --tooltip-shadow-light: rgba(0, 0, 0, 0.25);
+    --tooltip-shadow-indicator: rgba(0, 0, 0, 0.5);
+
+    /* Эффекты */
+    --tooltip-white-alpha: rgba(255, 255, 255, 0.15);
 }
